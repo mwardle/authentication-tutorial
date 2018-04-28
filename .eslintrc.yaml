@@ -9,6 +9,5 @@ rules:
   semi: [error, always]
   no-console: warn
   no-template-curly-in-string: error
-  consistent-return: on
   brace-style: [error, allman, {allowSingleLine: true}]
   no-unused-vars: warn
