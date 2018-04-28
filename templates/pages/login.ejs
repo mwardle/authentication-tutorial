@@ -1,0 +1,30 @@
+<%# file: templates/pages/login %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+    <style>.error-message {background: red; color: white; padding: 1em; margin-bottom: 1em;}</style>
+</head>
+<body class="container">
+
+<main>
+  <h1>Login Form</h1>
+  <form method="POST">
+    <div class="row">
+      <div class="twelve columns">
+        <label for="emailAddress">Your email</label>
+        <input class="u-full-width" placeholder="you@domain.com" name="emailAddress" id="emailAddress" type="email">
+      </div>
+      <div class="twelve columns">
+        <label for="password">Your password</label>
+        <input class="u-full-width" placeholder="" name="password" id="password" type="password">
+      </div>
+    </div>
+    <div class="error-message" style="display: <%= errorMessage === '' ? 'none' : 'block' %>;"><%= errorMessage %></div>
+    <input class="button-primary" value="Login" type="submit">
+  </form>
+</main>
+
+</body>
+</html>
