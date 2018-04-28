@@ -1,6 +1,8 @@
 require('dotenv').config({silent: true});
 const env = require('read-env').default('MYAPP');
 
+const {resolve} = require('path');
+
 const express = require('express');
 
 const sessionMiddleware = require('./lib/middleware/session');
@@ -22,11 +24,14 @@ const {
 // set up mongo
 setMongoUri(mongodbUri);
 
-
+const staticDir = resolve(__dirname, 'public');
 
 const app = express();
 
 app.set('trust proxy', trustProxy);
+app.set('view engine', 'ejs');
+app.set('views', 'templates');
+app.use('/public', express.static(staticDir));
 app.use(sessionMiddleware(env));
 app.use(enforceAuthentication(['/auth/login']));
 
