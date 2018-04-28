@@ -1,15 +1,21 @@
 {
-  "name": "authentication_tutorial",
+  "name": "authentication-tutorial",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An example application demonstrating how to properly implement authentication according to the OWASP standards",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "jest --coverage"
   },
-  "author": "",
+  "author": "Mark Wardle <mwardle@robinsage.com>",
   "license": "ISC",
   "dependencies": {
+    "connect-mongo": "^2.0.1",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.0.7",
+    "read-env": "^1.1.1",
     "uid-generator": "^1.0.0"
   },
   "devDependencies": {
