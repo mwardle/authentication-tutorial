@@ -4,6 +4,7 @@ const env = require('read-env').default('MYAPP');
 const {resolve} = require('path');
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const sessionMiddleware = require('./lib/middleware/session');
 const enforceAuthentication = require('./lib/middleware/enforceAuthentication');
@@ -35,6 +36,7 @@ app.use('/public', express.static(staticDir));
 app.use(sessionMiddleware(env));
 app.use(enforceAuthentication(['/auth/login']));
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('./lib/routers/authRouter'));
 app.use(require('./lib/routers/adminRouter'));
 
