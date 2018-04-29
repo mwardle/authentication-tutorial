@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 const sessionMiddleware = require('./lib/middleware/session');
 const enforceAuthentication = require('./lib/middleware/enforceAuthentication');
+const enforceSecureConnection = require('./lib/middleware/enforceSecureConnection');
 
 const {setMongoUri} = require('./lib/models/getMongoConnection');
 
@@ -32,6 +33,7 @@ const app = express();
 app.set('trust proxy', trustProxy);
 app.set('view engine', 'ejs');
 app.set('views', 'templates');
+app.use(enforceSecureConnection(env));
 app.use('/public', express.static(staticDir));
 app.use(sessionMiddleware(env));
 app.use(enforceAuthentication(['/auth/login']));
