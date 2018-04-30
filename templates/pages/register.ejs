@@ -1,0 +1,34 @@
+<%# file: templates/pages/register %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+    <style>.error-message {background: red; color: white; padding: 1em; margin-bottom: 1em;}</style>
+</head>
+<body class="container">
+
+<main>
+  <h1>Registration Form</h1>
+  <form method="POST">
+    <div class="row">
+      <div class="twelve columns">
+        <label for="email">Your email</label>
+        <input class="u-full-width" placeholder="you@domain.com" name="email" id="email" type="email">
+      </div>
+      <div class="twelve columns">
+        <label for="password">Your password</label>
+        <input class="u-full-width" placeholder="happy henry hates hippos" name="password" id="password" type="password">
+      </div>
+      <div class="twelve columns">
+        <label for="passwordAgain">Repeat your password</label>
+        <input class="u-full-width" placeholder="happy henry hates hippos" name="passwordAgain" id="passwordAgain" type="password">
+      </div>
+    </div>
+    <div class="error-message" style="display: <%= errorMessage === '' ? 'none' : 'block' %>;"><%= errorMessage %></div>
+    <input class="button-primary" value="Register" type="submit">
+  </form>
+</main>
+
+</body>
+</html>
