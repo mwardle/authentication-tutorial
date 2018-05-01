@@ -56,7 +56,8 @@ function nextIteration()
             // console.log(`    iteration ${currentIteration}: ${delta}s`);
             results[currentTimeCost].push(delta);
             nextIteration();
-        }).catch(err =>
+        })
+        .catch(err =>
         {
             console.log('there was an error', err);
             console.log('aborting...');

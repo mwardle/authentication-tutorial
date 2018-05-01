@@ -12,6 +12,9 @@ const enforceSecureConnection = require('./lib/middleware/enforceSecureConnectio
 
 const {setMongoUri} = require('./lib/models/getMongoConnection');
 
+const Authenticator = require('./lib/security/Authenticator');
+Authenticator.configure(env);
+
 const {
     // In production, you will likely be using a proxy server (i.e. nginx).
     // See http://expressjs.com/en/4x/api.html#trust.proxy.options.table
